@@ -1,0 +1,10 @@
+version: '3.4'
+services:
+  montp:
+    container_name: ${MONTP_CON_NAME:-montp}
+    image: daghlani/montp:${MONTP_V:-0.1}
+    ports:
+      - "8045:5000"
+    volumes:
+      - $PWD/app-db/:/montp/db/
+    restart: unless-stopped

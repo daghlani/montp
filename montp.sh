@@ -1,0 +1,1 @@
+IP=$(ip a | grep $(ip link | awk -F: '$0 !~ "lo|vir|tun|docker|wl|br|^[^0-9]"{print $2;getline}') -A 5 | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0' | head -1);TIME=$(date +"%Y-%m-%dT%H:%M:%S%z");curl --insecure https://172.26.40.56/set/${IP} -H 'Content-Type: application/json' -d '{"time": "'${TIME}'"}'

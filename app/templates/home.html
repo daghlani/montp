@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% for file in js_files %}
+<script type="module" src={{file}}></script>
+{% endfor %}
+<div class="container">
+  <h2>Montp<small> (Monitoring of ntp)</small></h2>
+  <div class="table-left">
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col col-1">row</div>
+        <div class="col col-2">IP</div>
+        <div class="col col-3">TIME</div>
+      </li>
+      {% for srv in srvs_asc %}
+        <li class="table-row" id="row-{{ loop.index }}">
+          <div class="col col-1 index" data-label="index">{{ loop.index }}</div>
+          <div class="col col-2 IP" data-label="IP">{{ srv[0] }}</div>
+          <div class="col col-3 TIME" data-label="TIME">{{ srv[1] }}</div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="table-right">
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col col-1">row</div>
+        <div class="col col-2">IP</div>
+        <div class="col col-3">TIME</div>
+      </li>
+      {% for srv in srvs_desc %}
+        <li class="table-row" id="row-{{ loop.index }}">
+          <div class="col col-1 index" data-label="index">{{ loop.index }}</div>
+          <div class="col col-2 IP" data-label="IP">{{ srv[0] }}</div>
+          <div class="col col-3 TIME" data-label="TIME">{{ srv[1] }}</div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div id="result_show"></div>
+</div>
+
+

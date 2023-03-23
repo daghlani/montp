@@ -1,0 +1,44 @@
+
+// import Gradient from "javascript-color-gradient";
+// const colorGradient = new Gradient();
+
+// colorGradient.setGradient("#e6062d", "#408247"); // from red to green
+// colorGradient.setMidpoint(8); // set to 8 color steps
+// colorGradient.getArray(); // get all 8 colors: [ "#d11630", "#bd2534", ... ]
+// console.log(colorGradient.getColor(1)); // #bd2534
+
+function updateBackground() {
+  var 
+    hr = (new Date()).getHours(),
+    body = document.body,
+    els = body.getElementsByClassName('table-row')
+  for (var el in els) {
+    // var el_hor = (new Date(times[t].innerHTML)).getHours()
+    var el_in = els[el].childNodes[1].innerHTML
+    var el_ip = els[el].childNodes[3].innerHTML
+    var el_hr = els[el].childNodes[4].innerHTML
+    if (el_hr < hr) {
+      console.log('NNNNNNNNNNNNNNN')
+      els[el].style.backgroundColor = "yellow";
+    } else if (el_hr > hr) {
+      console.log('SSSSSSSSSSSSSSS')
+      els[el].style.backgroundColor = "green";
+    }
+  }
+  // if (hr < 10) {
+  //   bstyle.backgroundColor = "yellow";
+  //   bstyle.color = "black";
+  //   hello.innerText = "Have a good morning";
+  // } else if (hr < 20) {
+  //   bstyle.backgroundColor = "green";
+  //   bstyle.color = "white";
+  //   hello.innerText ="Have a good day!";
+  // } else {
+  //   bstyle.backgroundColor = "black";
+  //   bstyle.color = "white";
+  //   hello.innerText = "Have a good night!";
+  // } 
+}
+
+setInterval(updateBackground, 1000 * 60);
+updateBackground();
